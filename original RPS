@@ -1,0 +1,56 @@
+import random
+game = "running"
+wins = 0
+draws = 0
+losses = 0
+games = 0
+
+while game == "running":
+    print ("choose from rock paper or scissors or r, p, or s.")
+    print("or if you want to know the stats, type stats or x.")
+    choice = input()
+    if choice == "stats" or choice == "x":
+        print("you have played " + str(games) + " games, ")
+        print(str(wins) + " of them were wins, ")
+        print("unfortunately, " + str(losses) + " of them were losses, ")
+        print("although " + str(draws) + " of them were draws.")
+        
+    else:
+        AIchoice = random.randint(1, 3)
+        if AIchoice == 1:
+            AIchoice = "rock"
+            if choice == "scissors" or choice == "s":
+                print ("I slammed you!")
+                losses += 1
+            if choice == "rock" or choice == "r":
+                print ("draw")
+                draws += 1
+            if choice == "paper" or choice == "p":
+                print ("dang! you got me COVERED!")
+                wins += 1
+
+        elif AIchoice == 2:
+            AIchoice = "paper"
+            if choice == "scissors" or choice == "s":
+                print ("wow, you got scissors! nice! (although I got paper.)")
+                wins += 1
+            if choice == "rock" or choice == "r":
+                print ("I covered you... ha ha")
+                losses += 1
+            if choice == "paper" or choice == "p":
+                print ("draw")
+                draws += 1
+
+        elif AIchoice == 3:
+            AIchoice = "scissors"
+            if choice == "scissors" or choice == "s":
+                print ("draw")
+                draws += 1
+            if choice == "rock" or choice == "r":
+                print ("wow, you rock! and I sciss.")
+                wins += 1
+            if choice == "paper" or choice == "p":
+                print ("I cut you to BITS")
+                losses += 1
+        games += 1
+    
